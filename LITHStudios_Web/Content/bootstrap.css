@@ -74,7 +74,6 @@ body, html {
     height: 100%;
     margin: 0;
     padding: 0;
-    -webkit-overflow-scrolling: touch; /* Lets it scroll lazy */
 }
 
 html {
@@ -7133,6 +7132,45 @@ td.visible-print {
     }
 }
 /*Home Page------------------------------------------------------------*/
+#loader {
+    background-color: var(--lith-orange);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 20px solid snow;
+    border-top: 20px solid #222;
+    border-bottom: 20px solid #222;
+    width: 120px;
+    height: 120px;
+
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
 .section-header {
     width: 100% !important;
@@ -7140,6 +7178,7 @@ td.visible-print {
     font-size: 4em;
     font-weight: bold;
     color: var(--lith-light-orange);
+    border-top: 0.1em solid #444;
     background-color: #222;
 }
 
@@ -7156,26 +7195,48 @@ td.visible-print {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    filter: blur(2px);
 }
 
 .parallax-text {
-    padding-top: 7em;
-    text-align: center;
+    text-align: center !important;
     color: var(--lith-orange);
-    position: relative;
-    text-shadow: 0.2em 0.2em 0.1em #222;
+    position: absolute;
+    top: 2em !important;
+    text-shadow: 0em 0em 0.2em #222;
+    margin-top: 7em;
+    width: 100%;
 }
 
     .parallax-text > h1 {
-        margin-top: 0px !important;
-        font-size: 10em;
+        margin-right: auto !important;
+        margin-left: auto !important;
+        font-size: 14em;
         font-weight: bold;
     }
 
     .parallax-text > p {
+        margin-right: auto !important;
+        margin-left: auto !important;
         font-size: 2em;
         font-weight: bold;
     }
+
+@media(max-width:1208px) {
+    .parallax-text > h1 {
+        font-size: 10em;
+    }
+}
+
+@media(max-width:720px) {
+    .parallax-text > h1 {
+        font-size: 10em;
+    }
+
+    .parallax-text > p {
+        font-size: 1.5em;
+    }
+}
 
 @media(max-width:520px) {
     .parallax-text > h1 {
@@ -7220,7 +7281,14 @@ td.visible-print {
     display: none;
     top: 0px;
     left: 0px;
-    background-color: var(--lith-light-orange);
+    background-color: snow;
+}
+
+#menu-container {
+    margin: 0;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center;
 }
 
 @media(max-width: 930px) {
