@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>LITH Studios</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#222222">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!--MENU-->
+    <button id="menu-button">MENU</button>
+    <div id="menu">
+        <div id="menu-container">
+            <h1>MENU</h1>
+            <p>isrbsuibvowoenwnvn   uiowebugbwoe</p> <br />
+            <p>isrbsuibvowoenwnvn   uiowebugbwoe</p>
+            <button id="close-menu">Close</button>
+        </div>
+    </div>
+    <script>
+        var html; // it would make more sense to apply this to body, but IE7 won't have that
+        var menu = $("#menu");
+
+        //opens the menu
+        $("button#menu-button").click(function () {
+            var scrollPosition = [
+                self.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft,
+                self.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+            ];
+            var html = jQuery('html');
+            html.data('scroll-position', scrollPosition);
+            html.data('previous-overflow', html.css('overflow'));
+            html.css('overflow', 'hidden');
+            window.scrollTo(scrollPosition[0], scrollPosition[1]);
+
+            menu.css("display", "normal");
+            menu.fadeIn("slow");
+        }
+        );
+
+        //closes the menu
+        $("button#close-menu").click(function () {      
+            // un-lock scroll position
+            var html = jQuery('html');
+            var scrollPosition = html.data('scroll-position');
+            html.css('overflow', html.data('previous-overflow'));
+            window.scrollTo(scrollPosition[0], scrollPosition[1]);
+
+            menu.fadeOut("slow");
+        }
+        );
+
+        //closes the menu
+    </script>
+    <!--END MENU-->
+
+
+    @RenderBody()
+
+    <div class="container">
+        <hr />
+        <footer>
+            <p>&copy; 2015-@DateTime.Now.Year  LITH Studios</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

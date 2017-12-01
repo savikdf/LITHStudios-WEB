@@ -1,0 +1,236 @@
+﻿@section Scripts{
+    @*@Scripts.Render("~/bundles/knockout")
+        @Scripts.Render("~/bundles/app")*@
+}
+
+<html>
+<head>
+
+</head>
+<body>
+
+    <!--HOME-->
+    <div id="section-home" class="parallax">
+        <div class="parallax-text">
+            <h1>LITH Studios</h1>
+            <p>Delivering quality without the pricetag.</p>
+        </div>
+    </div>
+    <!--END HOME-->
+    <!--ABOUT-->
+    <div id="section-about">
+        <div class="section-header">
+            <span>About</span>
+        </div>
+        <div id="about-content-studio" class="container about-container">
+            <h2>The Studio</h2>
+            <span>
+                LITH Studios- also know as 'Left In The Head' Studios- is a group of developers and creatives that work towards a common goal of giving smaller businesses an edge by giving them the web power of the biggest companies out there.
+                We aim to deliver the highest quality content to those who can't afford the hefty pricetag.
+            </span>
+            <img id="about-studio-logo" src="~/Content/Images/LITH-logo.png" />
+
+        </div>
+        <div id="about-content-team" class="container about-container">
+            <h2>The Team</h2>
+            <div id="about-content-team-container">
+
+                <button class="lith-button about-memeber-container">
+                    <img class="about-member-image" src="~/Content/Images/TeamMembers/img-member-savik.png" />
+                    <h3>Savik Fraguela</h3>
+                    <span class="member-title">Co-Founder, Tech Director</span>
+                    <span class="about-member-description">
+                        <i id="net-sav" class="fa about-member-social">&#xf0ac;</i>
+                        <i id="linked-sav" class="fa about-member-social">&#xf08c;</i>
+                        <i id="insta-sav" class="fa about-member-social">&#xf16d;</i>
+                        <br />
+                        Savik Listens to Slipknot while he codes. Enough said.
+                    </span>
+                    <span class="about-member-expand">+</span>
+                </button>
+                <script>
+                    $("#net-sav").click(function () {
+                        window.open("http://www.designsavik.weebly.com", "_blank");
+                    });
+                    $("#insta-sav").click(function () {
+                        window.open("https://www.instagram.com/savik1.0", "_blank");
+                    });
+                    $("#linked-sav").click(function () {
+                        window.open("https://www.linkedin.com/in/savik-fraguela-510a1a97", "_blank");
+                    });
+                </script>
+                <!--End Member-->
+
+                <button class="lith-button about-memeber-container">
+                    <img class="about-member-image" src="~/Content/Images/TeamMembers/img-member-eugene.png" />
+                    <h3>Eugene Martens</h3>
+                    <span class="member-title">Co-Founder, Creative Director</span>
+                    <span class="about-member-description">
+                        <i id="net-eug" class="fa about-member-social">&#xf0ac;</i>
+                        <i id="linked-eug" class="fa about-member-social">&#xf08c;</i>
+                        <br />
+                        Eugene is the coffee fueled machine of the group. All that caffeine leads to some out-of-the-box design ideas.
+                    </span>
+                    <span class="about-member-expand">+</span>
+                </button>
+                <script>
+                    $("#net-eug").click(function () {
+                        window.open("http://www.eugenemartens.com", "_blank");
+                    });
+                    $("#linked-eug").click(function () {
+                        window.open("https://www.linkedin.com/in/eugene-martens-7b9603a0", "_blank");
+                    });
+                </script>
+                <!--End Member-->
+
+                <button class="lith-button about-memeber-container">
+                    <img class="about-member-image" src="~/Content/Images/TeamMembers/img-member-isabella.png" />
+                    <h3>Isabella Cameron</h3>
+                    <span class="member-title">Design Consultant Lead</span>
+                    <span class="about-member-description">
+                        <i id="linked-isa" class="fa about-member-social">&#xf08c;</i>
+                        <br />
+                        Isabella Designs the Visual Aesthetics.
+                    </span>
+                    <span class="about-member-expand">+</span>
+                </button>
+                <script>
+                    $("#linked-isa").click(function () {
+                        window.open("https://www.linkedin.com/in/isabella-cameron-5a4b8a14b", "_blank");
+                    });
+                </script>
+                <!--End Member-->
+
+                <button class="lith-button about-memeber-container">
+                    <img class="about-member-image" src="~/Content/Images/TeamMembers/img-member-ally.png" />
+                    <h3>Ally Eastman</h3>
+                    <span class="member-title">.NET Development Lead</span>
+                    <span class="about-member-description">
+                        <i id="net-ally" class="fa about-member-social">&#xf0ac;</i>
+                        <i id="linked-ally" class="fa about-member-social">&#xf08c;</i>
+                        <br />
+                        Ally Develops and Designs.
+                    </span>
+                    <span class="about-member-expand">+</span>
+                </button>
+                <script>
+                    $("#net-ally").click(function () {
+                        window.open("http://www.allyeastman.com.au", "_blank");
+                    });
+                    $("#linked-ally").click(function () {
+                        window.open("https://www.linkedin.com/in/allyeastman", "_blank");
+                    });
+
+                </script>
+                <!--End Member-->
+
+                <button class="lith-button about-memeber-container">
+                    <img class="about-member-image" src="~/Content/Images/TeamMembers/img-member-zack.png" />
+                    <h3>Zack Vandekrol</h3>
+                    <span class="member-title">Branding and Graphics Lead</span>
+                    <span class="about-member-description">
+                        <i id="insta-zack" class="fa about-member-social">&#xf16d;</i>
+                        <br />
+                        Tattoo artist and art fanatic, Zack will make any logo/ art piece look amazing.
+                    </span>
+                    <span class="about-member-expand">+</span>
+                </button>
+                <script>
+                    $("#insta-zack").click(function () {
+                        window.open("https://www.instagram.com/paperstreetartco/", "_blank");
+                    });
+                </script>
+                <!--End Member-->
+
+                <button class="lith-button about-memeber-container">
+                    <img class="about-member-image" src="~/Content/Images/about-profile-blank.png" />
+                    <h3>You?</h3>
+                    <span class="member-title">Team Member!</span>
+                    <span class="about-member-description">
+                        Hard working? Have a passion for Development? Use the contact form and send us a message with your portfolio/ website and we'll be in touch.
+                        <span id="contact-us-about-link" class="about-member-social">Contact Us</span>
+                    </span>
+                    <span class="about-member-expand">+</span>
+                </button>
+                <script>
+                    $("#contact-us-about-link").click(function () {
+                        $('html,body').animate({
+                            scrollTop: $("#section-contact").offset().top
+                        },
+                            'slow');
+                    });
+                </script>
+                <!--End Member-->
+            </div>
+        </div>
+        <script>
+                    //Hide all descriptions
+                    $("span.about-member-description").hide();
+                    var isViewing = false;
+
+                    $("button.about-memeber-container").hover(function () {
+                        if (!$(this).hasClass("active-about")) {
+
+                            $(this).find("img.about-member-image").css("border", "0.2em solid var(--lith-orange)");
+                        }
+                    }, function () {
+                        $(this).find("img.about-member-image").css("border", "0.2em solid #222");
+
+                    });
+
+                    //social icon hovering
+                    $(".about-member-social").hover(function () {
+                        $(this).css("color", "var(--lith-orange");
+                    }, function () {
+                        $(this).css("color", "black");
+                    });
+
+                    //when descriptions are triggered, they show
+                    $("button.about-memeber-container").click(function () {
+                        //open the current tab
+                        if (!isViewing) {
+                            $(this).find("span.about-member-description").show("slow");
+                            $(this).addClass("active-about");
+                            $(this).find("span.about-member-expand").css("display", "none");
+
+
+                            if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                                $('html, body').animate({
+                                    scrollTop: $(this).offset().top
+                                }, 600);
+                            }
+                            isViewing = true;
+
+                        } else {
+                            if ($(this).hasClass("active-about")) {
+                                //currently active, will close
+                                $(this).find("span.about-member-description").hide("slow").fadeOut(10);
+                                $(this).removeClass("active-about");
+                                $(this).find("span.about-member-expand").css("display", "initial");
+                                isViewing = false;
+                            } else {
+                                //close all and open this one
+                                $("span.about-member-description").hide("slow");
+                                $("button.about-memeber-container").removeClass("active-about");
+                                $("span.about-member-expand").css("display", "initial");
+
+
+                                $(this).find("span.about-member-description").show("slow");
+                                $(this).addClass("active-about");
+                                $(this).find("span.about-member-expand").css("display", "none");
+                                isViewing = true;
+                            }
+
+                        }
+                    });
+
+        </script>
+
+    </div>
+
+    <!--END ABOUT-->
+
+
+
+</body>
+</html>
