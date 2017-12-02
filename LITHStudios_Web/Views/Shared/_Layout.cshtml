@@ -14,7 +14,7 @@
     <link href="~/Content/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body onload="loadFunction()">
+<body>
     <!--LOADER-->
     <div id="loader"></div>
     <div id="unloaded" style="display:none">
@@ -44,7 +44,7 @@
                 var html = jQuery('html');
                 html.data('scroll-position', scrollPosition);
                 html.data('previous-overflow', html.css('overflow'));
-                html.css('overflow', 'hidden');
+                html.css('overflow', 'hidden');        
                 window.scrollTo(scrollPosition[0], scrollPosition[1]);
 
                 menu.css("display", "normal");
@@ -66,10 +66,9 @@
 
             //on load ping for menu awareness
             $(document).ready(function () {
-
+                loadFunction();
             })
 
-        //closes the menu
         </script>
         <!--END MENU-->
 

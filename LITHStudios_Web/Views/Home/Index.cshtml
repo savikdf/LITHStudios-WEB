@@ -17,7 +17,7 @@
     </div>
     <!--END HOME-->
     <!--ABOUT-->
-    <div id="section-about">
+    <div id="section-about" class="section">
         <div class="section-header">
             <span>About</span>
         </div>
@@ -163,6 +163,17 @@
             </div>
         </div>
         <script>
+
+                    //alternates background colors on about divs:
+                    //var conts = $(".lith-button");
+                    //$(document).ready(function () {
+                    //    for (var i = 0; i < conts.length; i++) {
+                    //        if (i % 2 == 1) {
+                    //            $(conts[i]).css("background-color", "var(--lith-light-orange)");
+                    //        }
+                    //    }
+                    //});
+
                     //Hide all descriptions
                     $("span.about-member-description").hide();
                     var isViewing = false;
@@ -228,8 +239,70 @@
     </div>
 
     <!--END ABOUT-->
+    <!--CONTACT-->
+    <div id="section-conact" class="section">
+        <div class="section-header">
+            <span>Contact</span>
+        </div>
+        <form action="https://formspree.io/savik@lithstudios.com" method="POST">
+            <div class="container contact-container">
+
+                <fieldset class="contact-container-div">
+                    <legend>Personal Info</legend>
+                    <div class="mat-div">
+                        <label for="first-name" class="mat-label"><span style="color:red">*</span>First Name</label>
+                        <input required type="text" class="mat-input" id="first-name" name="name">
+                    </div>
+
+                    <div class="mat-div">
+                        <label required for="email" class="mat-label"><span style="color:red">*</span>Email</label>
+                        <input type="email" class="mat-input" id="email" name="e-mail">
+                    </div>
+
+                    <div class="mat-div">
+                        <label for="phone" class="mat-label"><span style="color:red">*</span>Phone</label>
+                        <input required type="tel" class="mat-input" id="phone" name="phone-num">
+                    </div>
+
+                    <div class="mat-div">
+                        <label for="budget" class="mat-label"><span style="color:red">*</span>What's your budget like?</label>
+                        <select required name="Budget" id="budget" class="mat-input">
+                            <option value="volvo">&lt; $500</option>
+                            <option value="saab">$500 - $1000</option>
+                            <option value="fiat">$1000 - $1500</option>
+                            <option value="audi">$1500 - $2000</option>
+                            <option value="audi">&gt;$2000</option>
+                            <option value="audi">N/A</option>
+                        </select>
+                    </div>
+
+                </fieldset>
+                <fieldset class="contact-container-div">
+                    <legend>Your Message</legend>
+                    <div class="mat-div">
+                        <label for="message" class="mat-label"><span style="color:red">*</span>Your Message</label>
+                        <textarea type="text" class="mat-input" id="message" cols="30" rows="9" name="message"></textarea>
+                    </div>                 
+
+                    <input type="submit" value="Send">
+                </fieldset>
+            </div>
 
 
+        </form>
+    </div>
+    <script>
+                    $(".mat-input").focus(function () {
+                        $(this).parent().addClass("is-active is-completed");
+                    });
+
+                    $(".mat-input").focusout(function () {
+                        if ($(this).val() === "")
+                            $(this).parent().removeClass("is-completed");
+                        $(this).parent().removeClass("is-active");
+                    })
+    </script>
+    <!--END CONTACT-->
 
 </body>
 </html>

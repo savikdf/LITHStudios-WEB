@@ -181,6 +181,7 @@ fieldset {
 
 legend {
     padding: 0;
+    padding-bottom: 0px !important;
     border: 0;
 }
 
@@ -7147,7 +7148,6 @@ td.visible-print {
     border-bottom: 20px solid #222;
     width: 120px;
     height: 120px;
-
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
 }
@@ -7172,14 +7172,18 @@ td.visible-print {
     }
 }
 
+.section {
+    min-height: 100%;
+}
+
 .section-header {
     width: 100% !important;
     text-align: left;
     font-size: 4em;
     font-weight: bold;
-    color: var(--lith-light-orange);
+    color: var(--lith-orange);
     border-top: 0.1em solid #444;
-    background-color: #222;
+    background-color: #222;     
 }
 
     .section-header > span {
@@ -7281,7 +7285,9 @@ td.visible-print {
     display: none;
     top: 0px;
     left: 0px;
-    background-color: snow;
+    background-color: #222;
+    color: snow;
+    border: 0.2em solid var(--lith-orange);
 }
 
 #menu-container {
@@ -7460,4 +7466,103 @@ span.more-about-contact {
     border: 0.3em solid var(--lith-orange);
     font-weight: bold;
     font-size: 1em;
+}
+
+/*---------------------------------------Contact Page*/
+/*remove the chrom autofill background color*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+input[type="submit"]{
+    border:none;
+    outline:none;
+    margin: 1em;
+    font-size: 1.5em;
+    background-color: var(--lith-orange);
+}
+
+.mat-label {
+    display: block;
+    font-size: 16px;
+    transform: translateY(2.5em);
+    transition: all 0.5s;
+    color: inherit;
+}
+
+.mat-input {
+    position: relative;
+    background: transparent;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 8px 0;
+    font-size: 16px;
+}
+
+.mat-div {
+    width: 60%;
+    position: relative;
+}
+
+    .mat-div:after, .mat-div:before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #222;
+        bottom: 0;
+        left: 0;
+        transition: all 0.5s;
+    }
+
+    .mat-div::after {
+        background-color: var(--lith-orange);
+        transform: scaleX(0);
+    }
+
+    .mat-div > textarea {
+    }
+
+.is-active::after {
+    transform: scaleX(1);
+}
+
+.is-active .mat-label {
+    color: var(--lith-orange);
+}
+
+.is-completed .mat-label {
+    font-size: 1em;
+    transform: translateY(1em);
+}
+
+fieldset > legend {
+    font-size: 1.6em;
+    margin: 1em 0;
+    border: none;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: auto;
+}
+
+    .contact-container > fieldset {
+
+    }
+
+fieldset.contact-container-div {
+    margin: 1em;
+    display: block;
+    width: 30em;
 }
