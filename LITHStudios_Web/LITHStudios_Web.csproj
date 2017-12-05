@@ -312,6 +312,53 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sammy-0.7.4.js" />
     <Content Include="Scripts\sammy-0.7.4.min.js" />
+    <Content Include="Scripts\webgl\bundle.js" />
+    <Content Include="Scripts\webgl\Collapse.js" />
+    <Content Include="Scripts\webgl\Detector.js" />
+    <Content Include="Scripts\webgl\Helpers\ColorPalletes.js" />
+    <Content Include="Scripts\webgl\Helpers\MathUtils.js" />
+    <Content Include="Scripts\webgl\Helpers\OrbitUtils.js" />
+    <Content Include="Scripts\webgl\Helpers\perlin.js" />
+    <Content Include="Scripts\webgl\Helpers\PlanetInfo.js" />
+    <Content Include="Scripts\webgl\Helpers\Vector2.js" />
+    <Content Include="Scripts\webgl\helvetiker_regular.typeface.js" />
+    <Content Include="Scripts\webgl\libs\stats.min.js" />
+    <Content Include="Scripts\webgl\Loaders.js" />
+    <Content Include="Scripts\webgl\main.js" />
+    <Content Include="Scripts\webgl\THREE\BloomBlendPass.js" />
+    <Content Include="Scripts\webgl\THREE\BloomPass.js" />
+    <Content Include="Scripts\webgl\THREE\BokehPass.js" />
+    <Content Include="Scripts\webgl\THREE\BokehShader.js" />
+    <Content Include="Scripts\webgl\THREE\BufferGeometryUtils.js" />
+    <Content Include="Scripts\webgl\THREE\CanvasRenderer.js" />
+    <Content Include="Scripts\webgl\THREE\ConvolutionShader.js" />
+    <Content Include="Scripts\webgl\THREE\CopyShader.js" />
+    <Content Include="Scripts\webgl\THREE\dat.gui.min.js" />
+    <Content Include="Scripts\webgl\THREE\DDSLoader.js" />
+    <Content Include="Scripts\webgl\THREE\EffectComposer.js" />
+    <Content Include="Scripts\webgl\THREE\FontUtils.js" />
+    <Content Include="Scripts\webgl\THREE\Gyroscope.js" />
+    <Content Include="Scripts\webgl\THREE\MaskPass.js" />
+    <Content Include="Scripts\webgl\THREE\MTLLoader.js" />
+    <Content Include="Scripts\webgl\THREE\ObjectLoader.js" />
+    <Content Include="Scripts\webgl\THREE\OBJLoader.js" />
+    <Content Include="Scripts\webgl\THREE\OrbitControls.js" />
+    <Content Include="Scripts\webgl\THREE\Projector.js" />
+    <Content Include="Scripts\webgl\THREE\RenderPass.js" />
+    <Content Include="Scripts\webgl\THREE\SepiaShader.js" />
+    <Content Include="Scripts\webgl\THREE\ShaderPass.js" />
+    <Content Include="Scripts\webgl\THREE\SSAOShader.js" />
+    <Content Include="Scripts\webgl\THREE\three.js" />
+    <Content Include="Scripts\webgl\THREE\three.min.js" />
+    <Content Include="Scripts\webgl\THREE\ThreeAnimator.js" />
+    <Content Include="Scripts\webgl\THREE\UniformsLib.js" />
+    <Content Include="Scripts\webgl\THREE\WorldData.js" />
+    <Content Include="Scripts\webgl\WorldGenerator\FallOffGenerator.js" />
+    <Content Include="Scripts\webgl\WorldGenerator\MapGenerator.js" />
+    <Content Include="Scripts\webgl\WorldGenerator\Noise1D.js" />
+    <Content Include="Scripts\webgl\WorldGenerator\Noise2D.js" />
+    <Content Include="Scripts\webgl\WorldGenerator\NoiseFromTexture.js" />
+    <Content Include="Scripts\webgl\WorldGenerator\Regions.js" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -350,6 +397,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Scripts\webgl\Shaders\MetaBalls.shader" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
