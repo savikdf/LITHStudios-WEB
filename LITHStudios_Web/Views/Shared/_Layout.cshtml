@@ -19,50 +19,65 @@
     <div id="loader"></div>
     <div id="unloaded" style="display:none">
         <!--MENU-->
-        <button id="menu-button">
-            MENU
-            <div class="open-ping-bubble"></div>
-        </button>
+        <button id="menu-button">MENU</button>
         <div id="menu">
             <div id="menu-container">
-                <h1>MENU</h1>
-                <p>Menu Test</p> <br />
-                <p>This menu is on its way, be patient! :)</p>
-                <button id="close-menu">Close</button>
+                <button class="menu-button-sub" href="#section-about" onclick="CloseMenu('section-about')">About</button>
+                <button class="menu-button-sub" href="#section-contact" onclick="CloseMenu('section-contact')">Contact</button>
+
+                <button id="close-menu" class="menu-button-sub">Close</button>
             </div>
         </div>
         <script>
             var html; // it would make more sense to apply this to body, but IE7 won't have that
             var menu = $("#menu");
+            var menuIsOpen = false;
+
+            //clicking anywhere off the menu closes it
+            $("#menu").click(function () {
+                CloseMenu();
+            })
 
             //opens the menu
             $("button#menu-button").click(function () {
-                var scrollPosition = [
-                    self.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft,
-                    self.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-                ];
-                var html = jQuery('html');
-                html.data('scroll-position', scrollPosition);
-                html.data('previous-overflow', html.css('overflow'));
-                html.css('overflow', 'hidden');        
-                window.scrollTo(scrollPosition[0], scrollPosition[1]);
+                //var scrollPosition = [
+                //    self.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft,
+                //    self.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+                //];
+                //var html = jQuery('html');
+                //html.data('scroll-position', scrollPosition);
+                //html.data('previous-overflow', html.css('overflow'));
+                //html.css('overflow', 'hidden');
+                //window.scrollTo(scrollPosition[0], scrollPosition[1]);
 
                 menu.css("display", "normal");
-                menu.fadeIn("slow");
+                menu.fadeIn("fast");
+                isMenuOpen = true;
+
             }
             );
 
             //closes the menu
             $("button#close-menu").click(function () {
-                // un-lock scroll position
-                var html = jQuery('html');
-                var scrollPosition = html.data('scroll-position');
-                html.css('overflow', html.data('previous-overflow'));
-                window.scrollTo(scrollPosition[0], scrollPosition[1]);
-
-                menu.fadeOut("slow");
+                CloseMenu();
             }
             );
+
+            function CloseMenu(divToGo) {
+                // un-lock scroll position
+                //var html = jQuery('html');
+                //var scrollPosition = html.data('scroll-position');
+                //html.css('overflow', html.data('previous-overflow'));
+                //window.scrollTo(scrollPosition[0], scrollPosition[1]);
+
+                menu.fadeOut("slow");
+                isMenuOpen = false;
+                if (divToGo != null) {
+                    $('html, body').animate({
+                        scrollTop: $("#" + String(divToGo)).offset().top
+                    }, 300);
+                }
+            }
 
             //on load ping for menu awareness
             $(document).ready(function () {

@@ -11,14 +11,16 @@
 
     <!--HOME-->
     <div id="section-home" class="parallax"></div>
+
     <div class="parallax-text">
         <h1>LITH Studios</h1>
-        <p>Delivering quality without the pricetag.</p>
-    </div>
+        <p>Giving You The Upgrade Your Business Deserves. </p>
+    </div>                     
     <!--END HOME-->
+
     <!--ABOUT-->
     <div id="section-about" class="section">
-        <div class="section-header">
+        <div class="section-header container">
             <span>About</span>
         </div>
         <div id="about-content-studio" class="container about-container">
@@ -240,32 +242,36 @@
 
     <!--END ABOUT-->
     <!--CONTACT-->
-    <div id="section-conact" class="section">
-        <div class="section-header">
+    <div id="section-contact" class="section">
+        <div class="section-header container">
             <span>Contact</span>
         </div>
         <form action="https://formspree.io/savik@lithstudios.com" method="POST">
             <div class="container contact-container">
 
                 <fieldset class="contact-container-div">
-                    <legend>Personal Info</legend>
                     <div class="mat-div">
-                        <label for="first-name" class="mat-label"><span style="color:red">*</span>First Name</label>
-                        <input required type="text" class="mat-input" id="first-name" name="name">
+                        <label for="name" class="mat-label"><span style="color:red">*</span>Name</label>
+                        <input required type="text" class="mat-input" id="name" name="name">
+                    </div>
+
+                    <div class="mat-div">
+                        <label for="bus-name" class="mat-label">Business Name</label>
+                        <input type="text" class="mat-input" id="bus-name" name="business-name">
                     </div>
 
                     <div class="mat-div">
                         <label required for="email" class="mat-label"><span style="color:red">*</span>Email</label>
-                        <input type="email" class="mat-input" id="email" name="e-mail">
+                        <input required type="email" class="mat-input" id="email" name="e-mail">
                     </div>
 
                     <div class="mat-div">
-                        <label for="phone" class="mat-label"><span style="color:red">*</span>Phone</label>
-                        <input required type="tel" class="mat-input" id="phone" name="phone-num">
+                        <label for="phone" class="mat-label">Phone</label>
+                        <input type="tel" class="mat-input" id="phone" name="phone-num">
                     </div>
 
                     <div class="mat-div">
-                        <label for="budget" class="mat-label"><span style="color:red">*</span>What's your budget like?</label>
+                        <label for="budget" class="mat-label"><span style="color:red">*</span>What's your budget looking like?</label>
                         <select required name="Budget" id="budget" class="mat-input">
                             <option value="volvo">&lt; $500</option>
                             <option value="saab">$500 - $1000</option>
@@ -278,13 +284,12 @@
 
                 </fieldset>
                 <fieldset class="contact-container-div">
-                    <legend>Your Message</legend>
                     <div class="mat-div">
                         <label for="message" class="mat-label"><span style="color:red">*</span>Your Message</label>
                         <textarea type="text" class="mat-input" id="message" cols="30" rows="9" name="message"></textarea>
                     </div>                 
 
-                    <input type="submit" value="Send">
+                    <input type="submit" value="Submit">
                 </fieldset>
             </div>
 

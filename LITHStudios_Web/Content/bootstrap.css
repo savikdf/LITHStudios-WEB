@@ -71,6 +71,7 @@ video {
 }
 
 body, html {
+    background-color: snow;
     height: 100%;
     margin: 0;
     padding: 0;
@@ -7182,32 +7183,45 @@ td.visible-print {
     font-size: 4em;
     font-weight: bold;
     color: var(--lith-orange);
-    border-top: 0.1em solid #444;
-    background-color: #222;     
+    background-color: snow;
+    width: 100%;
+    border-bottom: 0.065em solid var(--lith-orange);
 }
 
     .section-header > span {
-        padding-left: 15px;
+        text-shadow: 0em 0em 1px #222;
     }
 
-
 .parallax {
-    background-image: url(Images/hero-img-home.png);
     height: 100% !important;
-    /* Create the parallax scrolling effect */
+    background-color: snow; /* For browsers that do not support gradients */
+    background-image: url(Images/hero-img-home.png);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    filter: blur(2px);
 }
+
+    .parallax::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: -webkit-linear-gradient(transparent, snow); /* For Safari 5.1 to 6.0 */
+        background-image: -o-linear-gradient(transparent, snow); /* For Opera 11.1 to 12.0 */
+        background-image: -moz-linear-gradient(transparent, snow); /* For Firefox 3.6 to 15 */
+        background-image: linear-gradient(transparent, snow); /* Standard syntax */
+        opacity: 1;
+    }
 
 .parallax-text {
     text-align: center !important;
-    color: var(--lith-orange);
+    color: #222;
     position: absolute;
     top: 2em !important;
-    text-shadow: 0em 0em 0.2em #222;
+    text-shadow: 0em 0em 0.3em snow;
     margin-top: 7em;
     width: 100%;
 }
@@ -7225,6 +7239,10 @@ td.visible-print {
         font-size: 2em;
         font-weight: bold;
     }
+
+#section-home + .parallax {
+    background-color: red;
+}
 
 @media(max-width:1208px) {
     .parallax-text > h1 {
@@ -7279,28 +7297,49 @@ td.visible-print {
 
 #menu {
     z-index: 1001;
-    width: 100%;
+    width: auto;
     height: 100%;
     position: fixed;
     display: none;
     top: 0px;
-    left: 0px;
-    background-color: #222;
-    color: snow;
-    border: 0.2em solid var(--lith-orange);
+    right: 0px;
+    float: right;
+    z-index: 999;
+    color: #222;
+    background: var(--lith-orange); /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, transparent, var(--lith-orange)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, transparent, var(--lith-orange)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, transparent, var(--lith-orange)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, transparent, var(--lith-orange)); /* Standard syntax */
 }
 
 #menu-container {
     margin: 0;
     margin-left: auto !important;
     margin-right: auto !important;
+    width: auto;
+    float: right;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
-@media(max-width: 930px) {
-    #menu-button {
-    }
+.menu-button-sub {
+    margin: 1em;
+    display: block;
+    outline: none;
+    border: 0.2em solid rgba(255,255,255,0.9);
+    height: 5em;
+    width: 5em;
+    top: 0.2em;
+    right: 0.2em;
+    border-radius: 50%;
+    font-weight: bold;
+    background-color: rgba(34,34,34,0.6);
+    color: snow;
 }
+
 
 /*About Page------------------------------------------------------------*/
 img#about-studio-logo {
@@ -7328,7 +7367,7 @@ img#about-studio-logo {
 }
 
 button.lith-button {
-    background-color: #fff;
+    background-color: transparent;
     border: none;
 }
 
@@ -7346,6 +7385,7 @@ button.lith-button {
 
 .about-memeber-container {
     width: 20em;
+    height: auto;
     margin: 1em;
     padding-bottom: 1em;
 }
@@ -7477,10 +7517,11 @@ input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
 }
 
-input[type="submit"]{
-    border:none;
-    outline:none;
-    margin: 1em;
+input[type="submit"] {
+    border: none;
+    outline: none;
+    margin: 1em 0;
+    padding: 0 1em;
     font-size: 1.5em;
     background-color: var(--lith-orange);
 }
@@ -7543,7 +7584,8 @@ input[type="submit"]{
 
 fieldset > legend {
     font-size: 1.6em;
-    margin: 1em 0;
+    margin: 0;
+    font-weight: bold;
     border: none;
 }
 
@@ -7558,7 +7600,6 @@ fieldset > legend {
 }
 
     .contact-container > fieldset {
-
     }
 
 fieldset.contact-container-div {
