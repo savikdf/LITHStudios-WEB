@@ -7153,6 +7153,21 @@ td.visible-print {
     animation: spin 2s linear infinite;
 }
 
+#webGL-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+canvas{
+    width:100%;
+    height:100%;
+    position:absolute;
+    bottom:0;
+
+}
+
 @-webkit-keyframes spin {
     0% {
         -webkit-transform: rotate(0deg);
@@ -7192,10 +7207,10 @@ td.visible-print {
         text-shadow: 0em 0em 1px #222;
     }
 
+
 .parallax {
     height: 100% !important;
     background-color: snow; /* For browsers that do not support gradients */
-    background-image: url(Images/hero-img-home.png);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -7269,6 +7284,8 @@ td.visible-print {
         font-size: 1.5em;
     }
 }
+
+
 
 #menu-button {
     z-index: 1000;
