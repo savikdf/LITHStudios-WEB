@@ -41,18 +41,6 @@ namespace LITHStudios_Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                  "~/Content/Site.css",
                  "~/Content/bootstrap.css"));
-
-            bundles.Add(new ScriptBundle("~/bundles/webgl").Include(
-                "~/Scripts/webgl/THREE/three.js",
-                "~/Scripts/webgl/THREE/EffectComposer.js",
-                "~/Scripts/webgl/THREE/RenderPass.js",
-                "~/Scripts/webgl/THREE/CopyShader.js",
-                "~/Scripts/webgl/THREE/ShaderPass.js",
-                "~/Scripts/webgl/THREE/MaskPass.js",
-                "~/Scripts/webgl/Helpers/MathUtils.js", 
-                "~/Scripts/webgl/Shaders/MetaBalls.js",
-                "~/Scripts/webgl/main.js"
-                ));
         }
     }
 }
