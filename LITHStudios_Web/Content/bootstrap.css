@@ -7340,6 +7340,9 @@ td.visible-print {
     color: snow;
 }
 
+/*HOME Page--------------------------------------------------------------*/
+
+
 
 /*About Page------------------------------------------------------------*/
 img#about-studio-logo {
@@ -7384,10 +7387,11 @@ button.lith-button {
 }
 
 .about-memeber-container {
-    width: 20em;
+    width: 30em;
     height: auto;
     margin: 1em;
     padding-bottom: 1em;
+    text-align: center;
 }
 
     .about-memeber-container > p, .about-memeber-container > h3 {
@@ -7486,6 +7490,7 @@ img.about-member-image {
 }
 
 .about-member-description {
+    text-align: center;
     font-size: 1em;
 }
 
