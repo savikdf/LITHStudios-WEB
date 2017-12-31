@@ -9,163 +9,100 @@
 </head>
 <body>
 
+
     <!--HOME-->
-    <div id="section-home" class="parallax"></div>
+    <div id="section-home" class="section">
+        <div class="section-header container">
+            <span>Home</span>
+        </div>
+        <div id="home-icons" class="container">
+            <h1 class="icon-reminder" style="font-size:4em; text-align:center;">Choose an Icon to learn more</h1>
 
-    <div class="parallax-text">
-        <h1>LITH Studios</h1>
-        <p>Giving You The Upgrade Your Business Deserves. </p>
+            <ul>
+                <li><button class="icon-button"><i class="fa fa-gamepad" aria-hidden="true"></i></button></li>
+                <li><button class="icon-button"><i class="fa fa-lightbulb-o" aria-hidden="true"></i></button></li>
+                <li><button class="icon-button"><i class="fa fa-code" aria-hidden="true"></i></button></li>
+                <li><button class="icon-button"><i class="fa fa-pencil" aria-hidden="true"></i></button></li>
+            </ul>
+            <div class="icon-desc-test">
+
+                <h1 style="text-align:center;">INFO COMING SOON</h1>
+            </div>
+        </div>        
     </div>
+    <script>
+        var isViewing = false;
 
-    <div class="section-header container">
-        <span>What We Do</span>
-    </div>            
-   
-    <p class="container">We Develop!</p>
+        if (isViewing) {
+            $(".icon-desc-test").show("fast");
+        } else {
+            $(".icon-desc-test").hide("fast");
+        }
 
-    <!--END HOME-->
+        $(".icon-button").click(function () {
+            $(".icon-reminder").hide("slow");
+            if ($(this).hasClass("active-home-icon-button")) {
+                $(this).removeClass("active-home-icon-button");
+                isViewing = false;
+            } else {
+                isViewing = true;
+                $(".icon-button").removeClass("active-home-icon-button");
+                $(this).addClass("active-home-icon-button");
+            }
+
+            if (isViewing) {
+                $(".icon-desc-test").show("fast");
+            } else {
+                $(".icon-desc-test").hide("fast");
+
+            }
+
+
+        });
+
+    </script>
+
+
     <!--ABOUT-->
     <div id="section-about" class="section">
         <div class="section-header container">
-            <span>About Us</span>
+            <span>About</span>
         </div>
-        <div id="about-content-studio" class="container about-container">
-            <span>
-                LITH Studios- also know as 'Left In The Head' Studios- is a group of developers and creatives that work towards a common goal of giving smaller businesses an edge by giving them the web power of the biggest companies out there.
-                We aim to deliver the highest quality content to those who can't afford the hefty pricetag.
-            </span>
-            <img id="about-studio-logo" src="~/Content/Images/LITH-logo.png" />
-
-        </div>
-        <div id="about-content-team" class="container about-container">
-            <div id="about-content-team-container">
-
-                <div class="about-memeber-container">
-                    <img class="about-member-image" src="~/Content/Images/TeamMembers/img-member-savik.png" />
-                    <h3>Savik Fraguela</h3>
-                    <span class="member-title">Co-Founder, Tech Director</span>
-                    <span class="about-member-description">
-                        <i id="net-sav" class="fa about-member-social">&#xf0ac;</i>
-                        <i id="linked-sav" class="fa about-member-social">&#xf08c;</i>
-                        <i id="insta-sav" class="fa about-member-social">&#xf16d;</i>
-                        <br />
-                        Savik is the logic side of LITH. With experience developing in professional environments and on multiple side projects, Savik will bring
-                        the 'Midas Touch of Development' to your project, whatever it may be.
-                    </span>
-                    @*<span class="about-member-expand">+</span>*@
-                </div>
-                <script>
-                    $("#net-sav").click(function () {
-                        window.open("http://www.designsavik.weebly.com", "_blank");
-                    });
-                    $("#insta-sav").click(function () {
-                        window.open("https://www.instagram.com/savik1.0", "_blank");
-                    });
-                    $("#linked-sav").click(function () {
-                        window.open("https://www.linkedin.com/in/savik-fraguela-510a1a97", "_blank");
-                    });
-                </script>
-                <!--End Member: Savik-->
-
-                <div class="about-memeber-container">
-                    <img class="about-member-image" src="~/Content/Images/TeamMembers/img-member-eugene.png" />
-                    <h3>Eugene Martens</h3>
-                    <span class="member-title">Co-Founder, Creative Director</span>
-                    <span class="about-member-description">
-                        <i id="net-eug" class="fa about-member-social">&#xf0ac;</i>
-                        <i id="linked-eug" class="fa about-member-social">&#xf08c;</i>
-                        <br />
-                        Eugene is the coffee fueled machine of the group. All that caffeine leads to some out-of-the-box design ideas.
-                    </span>
-                    @*<span class="about-member-expand">+</span>*@
-                </div>
-                <script>
-                    $("#net-eug").click(function () {
-                        window.open("http://www.eugenemartens.com", "_blank");
-                    });
-                    $("#linked-eug").click(function () {
-                        window.open("https://www.linkedin.com/in/eugene-martens-7b9603a0", "_blank");
-                    });
-                </script>
-                <!--End Member: Eugene-->
-                @*<button class="lith-button about-memeber-container">
-                        <img class="about-member-image" src="~/Content/Images/about-profile-blank.png" />
-                        <h3>You?</h3>
-                        <span class="member-title">Team Member!</span>
-                        <span class="about-member-description">
-                            Hard working? Have a passion for Development? Use the contact form and send us a message with your portfolio/ website and we'll be in touch.
-                            <span id="contact-us-about-link" class="about-member-social">Contact Us</span>
-                        </span>
-                        <span class="about-member-expand">+</span>
-                    </button>
-                    <script>
-                        $("#contact-us-about-link").click(function () {
-                            $('html,body').animate({
-                                scrollTop: $("#section-contact").offset().top
-                            },
-                                'slow');
-                        });
-                    </script>*@
-                <!--End Member-->
+        <div class="about-content-container container">
+            <div class="about-content">
+                <h1>The Studio</h1>
+                <p>
+                    LITH Studios was founded with the core idea of being different; A studio that was cut-off entirely from the monopoly
+                    of the corporate world; a studio that actually cared about their clients; A studio that would change the way technology evolves.<br /> <br />
+                    What began as energy drink fueled game developers trying to justify making games for a living, has now evolved into coffee fueled software developers
+                    trying to justify making apps for a living. Nothing has changed from our beginning really, just our knowledge and passion.
+                </p>
+                <h1>The Devs</h1>
+                <p>
+                    Savik and Eugene have been a team ever since they crossed paths. With development experience that ranges from fortune 500 companies to the depths of student projects,
+                    we've seen it all. We were both Interdisiplinary Game Deveolopers to start with, but transitioned into web apps and software when we realized that's where our
+                    passion was. <br /><br />
+                    We're both young, full of life, and ready to sit behind the keyboard 24-7 until your project hits perfection.
+                </p>
+            </div>
+            <div class="about-content" id="img-anim-cont">
+                <img class=".about-content-img-anim" src="~/Content/Images/TeamMembers/sav.jpg" alt="Savik" longdesc="Savik, one of the founders!" />
+                <img class=".about-content-img-anim" src="~/Content/Images/TeamMembers/eug.jpg" alt="Eugene" longdesc="Eugene, one of the founders!" />
             </div>
         </div>
-        <script>
-            //Hide all descriptions
-            //$("span.about-member-description").hide();
-            //var isViewing = false;
-
-            //$("button.about-memeber-container").hover(function () {
-            //    if (!$(this).hasClass("active-about")) {
-
-            //        $(this).find("img.about-member-image").css("border", "0.2em solid var(--lith-orange)");
-            //    }
-            //}, function () {
-            //    $(this).find("img.about-member-image").css("border", "0.2em solid #222");
-
-            //});
-
-            //social icon hovering
-            $(".about-member-social").hover(function () {
-                $(this).css("color", "var(--lith-orange");
-                $(this).css("cursor", "pointer");
-            }, function () {
-                $(this).css("color", "black");
-            });
-
-            //when descriptions are triggered, they show
-            //$("button.about-memeber-container").click(function () {
-            //    //open the current tab
-            //    if (!isViewing) {
-            //        $(this).find("span.about-member-description").show("slow");
-            //        $(this).addClass("active-about");
-            //        $(this).find("span.about-member-expand").css("display", "none");
-            //        isViewing = true;
-            //    } else {
-            //        if ($(this).hasClass("active-about")) {
-            //            //currently active, will close
-            //            $(this).find("span.about-member-description").hide("slow").fadeOut(10);
-            //            $(this).removeClass("active-about");
-            //            $(this).find("span.about-member-expand").css("display", "initial");
-            //            isViewing = false;
-            //        } else {
-            //            //close all and open this one
-            //            $("span.about-member-description").hide("slow");
-            //            $("button.about-memeber-container").removeClass("active-about");
-            //            $("span.about-member-expand").css("display", "initial");
-
-
-            //            $(this).find("span.about-member-description").show("slow");
-            //            $(this).addClass("active-about");
-            //            $(this).find("span.about-member-expand").css("display", "none");
-            //            isViewing = true;
-            //        }
-
-            //    }
-            //});
-
-        </script>
-
     </div>
+    <script>
+        if (!isMobile) {
+            $(window).on("scroll resize", function () {
+                //About bubbles
+                var fadeAmount = math.min(1,
+                    (($(document).scrollTop() - $("#img-anim-cont").offset().top()) / 5)
+                );
+
+                $("#img-anim-cont").css("opacity", fadeAmount);
+            });
+        }
+    </script>
 
     <!--END ABOUT-->
     <!--CONTACT-->
@@ -196,10 +133,10 @@
                         <label for="phone" class="mat-label">Phone</label>
                         <input type="tel" class="mat-input" id="phone" name="phone-num">
                     </div>
-
+                    <br />
+                    <p style="font-weight:bold;"><span style="color:red">*</span>What's your budget looking like?</p>
                     <div class="mat-div">
-                        <label for="budget" class="mat-label"><span style="color:red">*</span>What's your budget looking like?</label>
-                        <select required name="Budget" id="budget" class="mat-input">
+                        <select required name="Budget" id="budget" class="mat-input budget-select">
                             <option value="less-than-500">&lt; $500</option>
                             <option value="500-1000">$500 - $1000</option>
                             <option value="1000-1500">$1000 - $1500</option>
@@ -216,7 +153,7 @@
                         <textarea type="text" class="mat-input" id="message" cols="30" rows="9" name="message"></textarea>
                     </div>
 
-                    <input type="submit" value="Submit">
+                    <input id="submitButton" type="submit" value="Send">
                 </fieldset>
             </div>
 
@@ -236,5 +173,12 @@
     </script>
     <!--END CONTACT-->
 
+    <script>
+
+
+
+
+    </script>
 </body>
+
 </html>

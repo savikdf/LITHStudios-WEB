@@ -261,11 +261,12 @@
     <Content Include="Content\Images\about-profile-blank.png" />
     <Content Include="Content\Images\hero-img-home.png" />
     <Content Include="Content\Images\LITH-logo.png" />
-    <Content Include="Content\Images\TeamMembers\img-member-ally.png" />
+    <Content Include="Content\Images\LITH-Mask.png" />
+    <Content Include="Content\Images\LITH-Mask.svg" />
+    <Content Include="Content\Images\TeamMembers\eug.jpg" />
     <Content Include="Content\Images\TeamMembers\img-member-eugene.png" />
-    <Content Include="Content\Images\TeamMembers\img-member-isabella.png" />
     <Content Include="Content\Images\TeamMembers\img-member-savik.png" />
-    <Content Include="Content\Images\TeamMembers\img-member-zack.png" />
+    <Content Include="Content\Images\TeamMembers\sav.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -299,6 +300,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\BebasNeue.otf" />
     <None Include="Properties\PublishProfiles\LITHStudios - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
