@@ -259,6 +259,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\about-profile-blank.png" />
+    <Content Include="Content\Images\hero-img-about.png" />
+    <Content Include="Content\Images\hero-img-home-backup.png" />
+    <Content Include="Content\Images\hero-img-home-sub.png" />
     <Content Include="Content\Images\hero-img-home.png" />
     <Content Include="Content\Images\LITH-logo.png" />
     <Content Include="Content\Images\LITH-Mask.png" />
@@ -301,6 +304,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="fonts\BebasNeue.otf" />
+    <Content Include="fonts\Ultrathins.ttf" />
     <None Include="Properties\PublishProfiles\LITHStudios - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

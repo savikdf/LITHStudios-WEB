@@ -8,39 +8,107 @@
 
 </head>
 <body>
+    <div style="display:inline-flex; width:100%; overflow:hidden; margin-bottom:10em;">
+        <div id="moving-subtext" style="height:auto;">
+            <h1 id="moving-subtext-01">
+                Design
+                <span style="font-weight:bold; color:#8df7f7;">&amp;</span>
+            </h1>
+            <h1 id="moving-subtext-02">
+                Development
+            </h1>
+            <h2 id="moving-subtext-03" style="border-bottom:0.05em solid #8df7f7;">
+                Done Right
+            </h2>
 
+        </div>
+        <img id="moving-subtext-image" src="~/Content/Images/hero-img-home-sub.png" />
+
+    </div>
+    <script>
+        var SubImageHeight = 1000;
+        var SubImage = $("#moving-subtext-image");
+
+        if (!isMobile) {
+            $(SubImage).css("top", SubImageHeight);
+            $(SubImage).css("height", ($(window).height() * 0.95));
+
+
+
+            $(window).on("scroll resize", function () {
+
+                //Subtext
+                var leftOffsetAmount1 = Math.min(
+                    ($(window).scrollTop() / 3) - 290,
+                    40
+                );
+                var leftOffsetAmount2 = Math.min(
+                    ($(window).scrollTop() / 3) - 315,
+                    40
+                );
+                var leftOffsetAmount3 = Math.min(
+                    ($(window).scrollTop() / 3) - 330,
+                    40
+                );
+
+                $("#moving-subtext-01").css("margin-left", leftOffsetAmount1 + "px");
+                $("#moving-subtext-02").css("margin-left", leftOffsetAmount2 + "px");
+                $("#moving-subtext-03").css("margin-left", leftOffsetAmount3 + "px");
+
+
+                //Sub-image
+                $(SubImage).css("opacity", ($(document).scrollTop() / 600) - 1);
+                $(SubImage).css("top", ($(document).scrollTop() / 7.5) + SubImageHeight);
+
+
+            });
+        } else {
+            $("#moving-subtext").css("padding-left", 20 + "px");
+            $("#moving-subtext-image").css("display", "none");
+
+        }
+    </script>
 
     <!--HOME-->
     <div id="section-home" class="section">
         <div class="section-header container">
-            <span>Home</span>
+            <span>Services</span>
         </div>
         <div id="home-icons" class="container">
-            <h1 class="icon-reminder" style="font-size:4em; text-align:center;">Choose an Icon to learn more</h1>
-
             <ul>
-                <li><button class="icon-button"><i class="fa fa-gamepad" aria-hidden="true"></i></button></li>
-                <li><button class="icon-button"><i class="fa fa-lightbulb-o" aria-hidden="true"></i></button></li>
-                <li><button class="icon-button"><i class="fa fa-code" aria-hidden="true"></i></button></li>
-                <li><button class="icon-button"><i class="fa fa-pencil" aria-hidden="true"></i></button></li>
-            </ul>
-            <div class="icon-desc-test">
+                <li><button id="icon-design" class="icon-button"><i class="fa fa-lightbulb-o" aria-hidden="true"></i></button></li>
+                <li><button id="icon-code" class="icon-button"><i class="fa fa-code" aria-hidden="true"></i></button></li>
+                <li><button id="icon-art" class="icon-button"><i class="fa fa-pencil" aria-hidden="true"></i></button></li>
+                <li><button id="icon-games" class="icon-button"><i class="fa fa-gamepad" aria-hidden="true"></i></button></li>
 
-                <h1 style="text-align:center;">INFO COMING SOON</h1>
+            </ul>
+            <div id="icon-descriptions">
+
+                <div id="desc-design">
+                    <h1>Design</h1>
+                </div>
+                <div id="desc-code">
+                    <h1>Development</h1>
+                </div>
+                <div id="desc-art">
+                    <h1>Graphics &amp; Art</h1>
+                </div>
+                <div id="desc-games">
+                    <h1>Games</h1>
+                    <p>
+                        LITH Studios first began in Games Development and has multiple years of experience in all aspects of the gaming development lifecycle.
+                        We use output focused design and development techniques which means your game achieves what you want- with far less resources being put into production-
+                        which equals a smaller price tag, and a larger profit.
+                    </p>
+                </div>
             </div>
-        </div>        
+        </div>
     </div>
     <script>
         var isViewing = false;
+        $("#icon-descriptions").css("display", "none");;
 
-        if (isViewing) {
-            $(".icon-desc-test").show("fast");
-        } else {
-            $(".icon-desc-test").hide("fast");
-        }
-
-        $(".icon-button").click(function () {
-            $(".icon-reminder").hide("slow");
+        $(".icon-button").on("click mouseover", function () {
             if ($(this).hasClass("active-home-icon-button")) {
                 $(this).removeClass("active-home-icon-button");
                 isViewing = false;
@@ -51,14 +119,39 @@
             }
 
             if (isViewing) {
-                $(".icon-desc-test").show("fast");
+                $("#icon-descriptions").css("display", "initial");
             } else {
-                $(".icon-desc-test").hide("fast");
-
+                $("#icon-descriptions").css("display", "none");
             }
-
-
         });
+
+        function HideAllDesc() {
+            $("#desc-games").css("display", "none");
+            $("#desc-design").css("display", "none");
+            $("#desc-code").css("display", "none");
+            $("#desc-art").css("display", "none");
+        }
+
+        $("#icon-games").on("click mouseover", function () {
+            HideAllDesc();
+            $("#desc-games").show();
+        });
+
+        $("#icon-design").on("click mouseover", function () {
+            HideAllDesc();
+            $("#desc-design").show();
+        });
+
+        $("#icon-code").on("click mouseover", function () {
+            HideAllDesc();
+            $("#desc-code").show();
+        });
+
+        $("#icon-art").on("click mouseover", function () {
+            HideAllDesc();
+            $("#desc-art").show();
+        });
+
 
     </script>
 
@@ -84,6 +177,7 @@
                     passion was. <br /><br />
                     We're both young, full of life, and ready to sit behind the keyboard 24-7 until your project hits perfection.
                 </p>
+
             </div>
             <div class="about-content" id="img-anim-cont">
                 <img class=".about-content-img-anim" src="~/Content/Images/TeamMembers/sav.jpg" alt="Savik" longdesc="Savik, one of the founders!" />
@@ -107,6 +201,7 @@
     <!--END ABOUT-->
     <!--CONTACT-->
     <div id="section-contact" class="section">
+        <canvas id="canvas"></canvas>
         <div class="section-header container">
             <span>Contact</span>
         </div>
@@ -133,8 +228,13 @@
                         <label for="phone" class="mat-label">Phone</label>
                         <input type="tel" class="mat-input" id="phone" name="phone-num">
                     </div>
-                    <br />
-                    <p style="font-weight:bold;"><span style="color:red">*</span>What's your budget looking like?</p>
+
+                    <div class="mat-div">
+                        <label for="budget" class="mat-label">Whats Your Budget?</label>
+                        <input type="tel" class="mat-input" id="budget" name="budget-num">
+                    </div>
+
+                    @*<p style="font-weight:bold;"><span style="color:red">*</span>What's your budget looking like?</p>
                     <div class="mat-div">
                         <select required name="Budget" id="budget" class="mat-input budget-select">
                             <option value="less-than-500">&lt; $500</option>
@@ -144,7 +244,7 @@
                             <option value="greater-than-2000">&gt;$2000</option>
                             <option value="n-a">N/A</option>
                         </select>
-                    </div>
+                    </div>*@
 
                 </fieldset>
                 <fieldset class="contact-container-div">
@@ -159,6 +259,8 @@
 
 
         </form>
+
+
     </div>
     <script>
         $(".mat-input").focus(function () {
@@ -173,12 +275,216 @@
     </script>
     <!--END CONTACT-->
 
-    <script>
-
-
-
-
+    <script>  
+        if (isMobile) {
+            $("#canvas").css("display", "none");
+        }    
     </script>
+
+
+    <script>
+        // RequestAnimFrame: a browser API for getting smooth animations
+        window.requestAnimFrame = (function () {
+            return window.requestAnimationFrame ||
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                window.oRequestAnimationFrame ||
+                window.msRequestAnimationFrame ||
+                function (callback) {
+                    window.setTimeout(callback, 1000 / 60);
+                };
+        })();
+
+        // Initializing the canvas
+        // I am using native JS here, but you can use jQuery,
+        // Mootools or anything you want
+        var canvas = document.getElementById("canvas");
+
+        // Initialize the context of the canvas
+        var ctx = canvas.getContext("2d");
+
+        // Set the canvas width and height to occupy full window
+        var W = window.innerWidth, H = window.innerHeight;
+        canvas.width = W;
+        canvas.height = H;
+
+        // Some variables for later use
+        var particleCount = 150,
+            particles = [],
+            minDist = 70,
+            dist;
+
+        var vDamp = 1.5;
+        // Function to paint the canvas black
+        function paintCanvas() {
+            // Set the fill color to black
+            ctx.fillStyle = "rgba(0,0,0,1)";
+
+            // This will create a rectangle of white color from the
+            // top left (0,0) to the bottom right corner (W,H)
+            ctx.fillRect(0, 0, W, H);
+        }
+
+        // Now the idea is to create some particles that will attract
+        // each other when they come close. We will set a minimum
+        // distance for it and also draw a line when they come
+        // close to each other.
+
+        // The attraction can be done by increasing their velocity as
+        // they reach closer to each other
+
+        // Let's make a function that will act as a class for
+        // our particles.
+
+        function Particle() {
+            // Position them randomly on the canvas
+            // Math.random() generates a random value between 0
+            // and 1 so we will need to multiply that with the
+            // canvas width and height.
+            this.x = Math.random() * W;
+            this.y = Math.random() * H;
+
+
+            // We would also need some velocity for the particles
+            // so that they can move freely across the space
+            this.vx = -1 + Math.random() * 2;
+            this.vy = -1 + Math.random() * 2;
+
+            // Now the radius of the particles. I want all of
+            // them to be equal in size so no Math.random() here..
+            this.radius = 2;
+
+            // This is the method that will draw the Particle on the
+            // canvas. It is using the basic fillStyle, then we start
+            // the path and after we use the `arc` function to
+            // draw our circle. The `arc` function accepts four
+            // parameters in which first two depicts the position
+            // of the center point of our arc as x and y coordinates.
+            // The third value is for radius, then start angle,
+            // end angle and finally a boolean value which decides
+            // whether the arc is to be drawn in counter clockwise or
+            // in a clockwise direction. False for clockwise.
+            this.draw = function () {
+                ctx.fillStyle = "orange";
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+
+                // Fill the color to the arc that we just created
+                ctx.fill();
+            }
+        }
+
+        // Time to push the particles into an array
+        for (var i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        // Function to draw everything on the canvas that we'll use when
+        // animating the whole scene.
+        function draw() {
+
+            // Call the paintCanvas function here so that our canvas
+            // will get re-painted in each next frame
+            paintCanvas();
+
+            // Call the function that will draw the balls using a loop
+            for (var i = 0; i < particles.length; i++) {
+                p = particles[i];
+                p.draw();
+            }
+
+            //Finally call the update function
+            update();
+        }
+
+        // Give every particle some life
+        function update() {
+
+            // In this function, we are first going to update every
+            // particle's position according to their velocities
+            for (var i = 0; i < particles.length; i++) {
+                p = particles[i];
+
+                // Change the velocities
+                p.x += p.vx / vDamp;
+                p.y += p.vy / vDamp;
+
+                // We don't want to make the particles leave the
+                // area, so just change their position when they
+                // touch the walls of the window
+                if (p.x + p.radius > W)
+                    p.x = p.radius;
+
+                else if (p.x - p.radius < 0) {
+                    p.x = W - p.radius;
+                }
+
+                if (p.y + p.radius > H)
+                    p.y = p.radius;
+
+                else if (p.y - p.radius < 0) {
+                    p.y = H - p.radius;
+                }
+
+                // Now we need to make them attract each other
+                // so first, we'll check the distance between
+                // them and compare it to the minDist we have
+                // already set
+
+                // We will need another loop so that each
+                // particle can be compared to every other particle
+                // except itself
+                for (var j = i + 1; j < particles.length; j++) {
+                    p2 = particles[j];
+                    distance(p, p2);
+                }
+
+            }
+        }
+
+        // Distance calculator between two particles
+        function distance(p1, p2) {
+            var dist,
+                dx = p1.x - p2.x,
+                dy = p1.y - p2.y;
+
+            dist = Math.sqrt(dx * dx + dy * dy);
+
+            // Draw the line when distance is smaller
+            // then the minimum distance
+            if (dist <= minDist) {
+
+                // Draw the line
+                ctx.beginPath();
+                ctx.strokeStyle = "rgba(255,159,0," + (1.2 - dist / minDist) + ")";
+                ctx.moveTo(p1.x, p1.y);
+                ctx.lineTo(p2.x, p2.y);
+                ctx.stroke();
+                ctx.closePath();
+
+                // Some acceleration for the partcles
+                // depending upon their distance
+                var ax = dx / 2000,
+                    ay = dy / 2000;
+
+                // Apply the acceleration on the particles
+                p1.vx -= ax;
+                p1.vy -= ay;
+
+                p2.vx += ax;
+                p2.vy += ay;
+            }
+        }
+
+        // Start the main animation loop using requestAnimFrame
+        function animloop() {
+            draw();
+            requestAnimFrame(animloop);
+        }
+
+        animloop();
+    </script>
+
 </body>
 
 </html>

@@ -13,7 +13,6 @@
     <script src="/Scripts/jquery-1.10.2.min.js"></script>
     <script src="/Scripts/jquery-1.10.2.js"></script>
 
-
     <link href="~/Content/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
@@ -55,89 +54,96 @@
     <!--HEADER-->
     <div id="parallax-header">
         <img id="LITH-text" src="~/Content/Images/LITH-Mask.png" />
+        <div id="scroll-holder" style="position:absolute; left:10px; bottom: 10px;">
+            <div id="scroll-down">
+                <span class="arrow-down">
+                    <!-- css generated icon -->
+                </span>
+                <span id="scroll-title">
+                    Scroll down
+                </span>
+            </div>
+        </div>
+     
     </div>
-    <div style="height:auto;">
-        <h1 class="LITH-subText">It's Time For The <span style="font-weight:bold;">UPGRADE</span> You Deserve.</h1>
-    </div>
+
+
+
+
     <script>
         var LITHTextHeight = (($(window).height() / 2) - ($("#LITH-text").innerHeight() / 2));
+
         $("#LITH-text").centerWidth();
         $("#LITH-text").css("top", LITHTextHeight);
 
-
         if (!isMobile) {
             $(window).on("scroll resize", function () {
-
                 //Header
                 $("#LITH-text").css("opacity", 1 - $(window).scrollTop() / 450);
                 $("#LITH-text").css("top", LITHTextHeight + ($(window).scrollTop() / 2));
 
-                //Subtext
-                var leftOffsetAmount = Math.min(
-                    ($(window).scrollTop() / 3) - 200,
-                    0
-                );
-
-                $(".LITH-subText").css("opacity", Math.min(1, ($(window).scrollTop() / 300) - 0.75));
-                $(".LITH-subText").css("margin-left", leftOffsetAmount);
-
+                //arrow:
+                $("#scroll-holder").css("opacity", 1 - $(window).scrollTop()/100);   
 
             });
+        } else {
+            $("#scroll-holder").css("display", "none");
+
         }
     </script>
 
     <!--NAV-->
-    <nav id="navbar" style="z-index:1000;">
-        <ul>
-            <li><button id="btn-home">Home</button></li>
-            <li><button id="btn-about">About</button></li>
-            <li><button id="btn-contact">Contact</button></li>
-        </ul>
-    </nav>
-    <script>
-        $("#btn-home").click(function () {
-            $('html, body').animate({
-                scrollTop: $("#section-home").offset().top
-            }, 250);
-        });
-        $("#btn-about").click(function () {
-            $('html, body').animate({
-                scrollTop: $("#section-about").offset().top
-            }, 250);
-        });
-        $("#btn-contact").click(function () {
-            $('html, body').animate({
-                scrollTop: $("#section-contact").offset().top
-            }, 250);
-        });
-
-
-        (function ($) {
-            "use strict";
-
-            var $navbar = $("#navbar"),
-                y_pos = $navbar.offset().top,
-                height = $navbar.height();
-
-            $(document).scroll(function () {
-                var scrollTop = $(this).scrollTop();
-
-                if (scrollTop > y_pos + height) {
-                    $navbar.addClass("navbar-fixed").animate({
-                        top: 0
-                    });
-                    $("html").css("margin-top", height);
-                } else if (scrollTop <= y_pos) {
-                    $navbar.removeClass("navbar-fixed").clearQueue().animate({
-                        top: "-48px"
-                    }, 0);
-                    $("html").css("margin-top", 0);
-
-                }
+    @*<nav id="navbar" style="z-index:1000;">
+            <ul>
+                <li><button id="btn-home">Home</button></li>
+                <li><button id="btn-about">About</button></li>
+                <li><button id="btn-contact">Contact</button></li>
+            </ul>
+        </nav>
+        <script>
+            $("#btn-home").click(function () {
+                $('html, body').animate({
+                    scrollTop: $("#section-home").offset().top
+                }, 250);
+            });
+            $("#btn-about").click(function () {
+                $('html, body').animate({
+                    scrollTop: $("#section-about").offset().top
+                }, 250);
+            });
+            $("#btn-contact").click(function () {
+                $('html, body').animate({
+                    scrollTop: $("#section-contact").offset().top
+                }, 250);
             });
 
-        })(jQuery, undefined);
-    </script>
+
+            (function ($) {
+                "use strict";
+
+                var $navbar = $("#navbar"),
+                    y_pos = $navbar.offset().top,
+                    height = $navbar.height();
+
+                $(document).scroll(function () {
+                    var scrollTop = $(this).scrollTop();
+
+                    if (scrollTop > y_pos + height) {
+                        $navbar.addClass("navbar-fixed").animate({
+                            top: 0
+                        });
+                        $("html").css("margin-top", height);
+                    } else if (scrollTop <= y_pos) {
+                        $navbar.removeClass("navbar-fixed").clearQueue().animate({
+                            top: "-48px"
+                        }, 0);
+                        $("html").css("margin-top", 0);
+
+                    }
+                });
+
+            })(jQuery, undefined);
+        </script>*@
 
     @RenderBody()
 
