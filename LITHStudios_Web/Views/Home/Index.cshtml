@@ -7,9 +7,9 @@
 <head>
 
 </head>
-<body>
-    <div style="display:inline-flex; width:100%; overflow:hidden; margin-bottom:10em;">
-        <div id="moving-subtext" style="height:auto;">
+<body style="max-width:100%;">
+    <div style="display:inline-flex; width:100%; overflow:hidden; margin-bottom:10em; background-color: transparent;">
+        <div id="moving-subtext" style="height:auto; background-color: transparent;">
             <h1 id="moving-subtext-01">
                 Design
                 <span style="font-weight:bold; color:#8df7f7;">&amp;</span>
@@ -23,11 +23,13 @@
 
         </div>
         <img id="moving-subtext-image" src="~/Content/Images/hero-img-home-sub.png" />
-
     </div>
     <script>
-        var SubImageHeight = 1000;
+        var SubImageHeight = 1150;
         var SubImage = $("#moving-subtext-image");
+
+        $(SubImage).css("top", ($(document).scrollTop() / 7.5) + SubImageHeight);
+
 
         if (!isMobile) {
             $(SubImage).css("top", SubImageHeight);
@@ -58,13 +60,13 @@
 
                 //Sub-image
                 $(SubImage).css("opacity", ($(document).scrollTop() / 600) - 1);
-                $(SubImage).css("top", ($(document).scrollTop() / 7.5) + SubImageHeight);
 
 
             });
         } else {
+
             $("#moving-subtext").css("padding-left", 20 + "px");
-            $("#moving-subtext-image").css("display", "none");
+            $("#moving-subtext-image").css("opacity", 0.5);
 
         }
     </script>
@@ -72,85 +74,114 @@
     <!--HOME-->
     <div id="section-home" class="section">
         <div class="section-header container">
-            <span>Services</span>
+            <span>What We Can Do For You</span>
         </div>
         <div id="home-icons" class="container">
             <ul>
-                <li><button id="icon-design" class="icon-button"><i class="fa fa-lightbulb-o" aria-hidden="true"></i></button></li>
-                <li><button id="icon-code" class="icon-button"><i class="fa fa-code" aria-hidden="true"></i></button></li>
-                <li><button id="icon-art" class="icon-button"><i class="fa fa-pencil" aria-hidden="true"></i></button></li>
-                <li><button id="icon-games" class="icon-button"><i class="fa fa-gamepad" aria-hidden="true"></i></button></li>
+                <li id="info-design">
+                    <button id="icon-design" class="icon-button" style="margin-left: auto; margin-right: auto;"><i class="fa fa-lightbulb-o" aria-hidden="true"></i></button>
+                    <h1>Design</h1>
+                    <div class="service-description" id="desc-design">
+                        Design is the most crutial part of any project. We understand this, and are ready to give you the design spearhead you need to build your business. <br />
+                        At LITH we like to use output oriented design principles, meaing that you get the most optimized and refined user impact, experience and retention.
+                    </div>
+                </li>
+                <li id="info-code">
+                    <button id="icon-code" class="icon-button" style="margin-left: auto; margin-right: auto;"><i class="fa fa-code" aria-hidden="true"></i></button>
+                    <h1>Development</h1>
+                    <div class="service-description" id="desc-code">
+                        With over 8 years of experience developing on industry standard application frameworks and for fortune 500 companies, we can give you the technological edge
+                        you need. <br />
+                        If it's a complex application, a website or an inhouse tool, we have got you covered.
+                    </div>
+                </li>
+                <li id="info-art">
+                    <button id="icon-art" class="icon-button" style="margin-left: auto; margin-right: auto;"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                    <h1>Graphics</h1>
+                    <div class="service-description" id="desc-art">
+                        Using the latest graphics software, we will take your vision from the drawing board though to an amazing final product. <br />
+                        Whether you need branding, logos, letterheads, conceptual art, GIFs, promotional visuals or anything in between, we can provide.
+                    </div>
+                </li>
+                <li id="info-games">
+                    <button id="icon-games" class="icon-button" style="margin-left: auto; margin-right: auto;"><i class="fa fa-gamepad" aria-hidden="true"></i></button>
+                    <h1>Games</h1>
+                    <div class="service-description" id="desc-games">
+                        Gameification and 'Serious Games' are becoming a well known staple in engaging audiences. If you have a system that isn't yielding the results you hoped for,
+                        game design principles will be your saving grace.       <br />
+                        We can also turn any idea you have into a mobile app or PC game! The possibilities are endless with our experience in gaming development.
+                    </div>
+                </li>
 
             </ul>
-            <div id="icon-descriptions">
 
-                <div id="desc-design">
-                    <h1>Design</h1>
-                </div>
-                <div id="desc-code">
-                    <h1>Development</h1>
-                </div>
-                <div id="desc-art">
-                    <h1>Graphics &amp; Art</h1>
-                </div>
-                <div id="desc-games">
-                    <h1>Games</h1>
-                    <p>
-                        LITH Studios first began in Games Development and has multiple years of experience in all aspects of the gaming development lifecycle.
-                        We use output focused design and development techniques which means your game achieves what you want- with far less resources being put into production-
-                        which equals a smaller price tag, and a larger profit.
-                    </p>
-                </div>
-            </div>
         </div>
     </div>
     <script>
-        var isViewing = false;
-        $("#icon-descriptions").css("display", "none");;
+        if (isMobile) {
+            HideDescriptions();
+        }
 
-        $(".icon-button").on("click mouseover", function () {
-            if ($(this).hasClass("active-home-icon-button")) {
-                $(this).removeClass("active-home-icon-button");
-                isViewing = false;
-            } else {
-                isViewing = true;
+        $(".icon-button").on("click touch", function () {
+            //if not active
+            if (!$(this).hasClass("active-home-icon-button")) {
+                //remove active button
                 $(".icon-button").removeClass("active-home-icon-button");
+                //make this one active
                 $(this).addClass("active-home-icon-button");
-            }
+                if (isMobile) {
+                    //if its on the mobile hide all the other descriptions except this one
+                    HideDescriptions($(this).attr('id'));
+                    //scroll to the newly opened text
+                    $('html, body').animate({
+                        scrollTop: ($(this).offset().top - 50)
+                    }, 800);
+                }
 
-            if (isViewing) {
-                $("#icon-descriptions").css("display", "initial");
-            } else {
-                $("#icon-descriptions").css("display", "none");
+            } else if (isMobile) {
+                //remove all active buttons
+                $(".icon-button").removeClass("active-home-icon-button");
+                //hide all descriptions
+                HideDescriptions();
             }
-        });
+        }
+            //, function () {
+            //$(".icon-button").removeClass("active-home-icon-button");
+            //if (isMobile)
+            //    HideDescriptions();
+            //}
+        );
 
-        function HideAllDesc() {
-            $("#desc-games").css("display", "none");
+
+        function HideDescriptions(enablelWhatID) {
+            $("#desc-design").removeClass("active-description");
+            $("#desc-code").removeClass("active-description");
+            $("#desc-art").removeClass("active-description");
+            $("#desc-games").removeClass("active-description");
+
             $("#desc-design").css("display", "none");
             $("#desc-code").css("display", "none");
             $("#desc-art").css("display", "none");
+            $("#desc-games").css("display", "none");
+
+
+            if (enablelWhatID == "icon-design") {
+                $("#desc-design").addClass("active-description");
+                $("#desc-design").css("display", "inherit");
+            }
+            if (enablelWhatID == "icon-code") {
+                $("#desc-code").addClass("active-description");
+                $("#desc-code").css("display", "inherit");
+            }
+            if (enablelWhatID == "icon-art") {
+                $("#desc-art").addClass("active-description");
+                $("#desc-art").css("display", "inherit");
+            }
+            if (enablelWhatID == "icon-games") {
+                $("#desc-games").addClass("active-description");
+                $("#desc-games").css("display", "inherit");
+            }
         }
-
-        $("#icon-games").on("click mouseover", function () {
-            HideAllDesc();
-            $("#desc-games").show();
-        });
-
-        $("#icon-design").on("click mouseover", function () {
-            HideAllDesc();
-            $("#desc-design").show();
-        });
-
-        $("#icon-code").on("click mouseover", function () {
-            HideAllDesc();
-            $("#desc-code").show();
-        });
-
-        $("#icon-art").on("click mouseover", function () {
-            HideAllDesc();
-            $("#desc-art").show();
-        });
 
 
     </script>
@@ -159,7 +190,7 @@
     <!--ABOUT-->
     <div id="section-about" class="section">
         <div class="section-header container">
-            <span>About</span>
+            <span>About Us</span>
         </div>
         <div class="about-content-container container">
             <div class="about-content">
@@ -235,16 +266,16 @@
                     </div>
 
                     @*<p style="font-weight:bold;"><span style="color:red">*</span>What's your budget looking like?</p>
-                    <div class="mat-div">
-                        <select required name="Budget" id="budget" class="mat-input budget-select">
-                            <option value="less-than-500">&lt; $500</option>
-                            <option value="500-1000">$500 - $1000</option>
-                            <option value="1000-1500">$1000 - $1500</option>
-                            <option value="1500-2000">$1500 - $2000</option>
-                            <option value="greater-than-2000">&gt;$2000</option>
-                            <option value="n-a">N/A</option>
-                        </select>
-                    </div>*@
+                        <div class="mat-div">
+                            <select required name="Budget" id="budget" class="mat-input budget-select">
+                                <option value="less-than-500">&lt; $500</option>
+                                <option value="500-1000">$500 - $1000</option>
+                                <option value="1000-1500">$1000 - $1500</option>
+                                <option value="1500-2000">$1500 - $2000</option>
+                                <option value="greater-than-2000">&gt;$2000</option>
+                                <option value="n-a">N/A</option>
+                            </select>
+                        </div>*@
 
                 </fieldset>
                 <fieldset class="contact-container-div">
@@ -275,10 +306,10 @@
     </script>
     <!--END CONTACT-->
 
-    <script>  
+    <script>
         if (isMobile) {
             $("#canvas").css("display", "none");
-        }    
+        }
     </script>
 
 
